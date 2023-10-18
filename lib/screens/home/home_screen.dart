@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:booktickets/util/app_style.dart';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
@@ -24,40 +26,76 @@ class HomeScreen extends StatelessWidget {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text("Good Morning", style: Styles.headlineTextStyle3,),
+                        Text(
+                          "Good Morning",
+                          style: Styles.headlineTextStyle3,
+                        ),
                         const Gap(2),
-                        Text("Book Tickets", style: Styles.headlineTextStyle,),
+                        Text(
+                          "Book Tickets",
+                          style: Styles.headlineTextStyle,
+                        ),
                       ],
                     ),
                     ClipRRect(
                       borderRadius: BorderRadius.circular(10),
-                      child: Image.asset("assets/images/img_1.png", height: 50, width: 50, fit: BoxFit.fill,),
+                      child: Image.asset(
+                        "assets/images/img_1.png",
+                        height: 50,
+                        width: 50,
+                        fit: BoxFit.fill,
+                      ),
                     )
                   ],
                 ),
                 const Gap(25),
                 Container(
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Color(0xFFF4F6FD)
-                  ),
-                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+                      borderRadius: BorderRadius.circular(10),
+                      color: const Color(0xFFF4F6FD)),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
                   child: Row(
-                  children: [
-                    const Icon(FluentIcons.search_24_regular, color: Color(0xFFBFC205),),
-                    Text(
-                      "Search",
-                      style: Styles.headlineTextStyle4,
-                    )
-                  ],
+                    children: [
+                      const Icon(
+                        FluentIcons.search_24_regular,
+                        color: Color(0xFFBFC205),
+                      ),
+                      Text(
+                        "Search",
+                        style: Styles.headlineTextStyle4,
+                      )
+                    ],
+                  ),
                 ),
+                const Gap(40),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Upcoming Flights",
+                      style: Styles.headlineTextStyle2,
+                    ),
+                    TextButton(
+                      style: ButtonStyle(
+                        overlayColor:
+                            MaterialStateProperty.all<Color>(Colors.white54),
+                      ),
+                      onPressed: () {
+                        print("onclick view all");
+                      },
+                      isSemanticButton: true,
+                      child: Text("View all",
+                          style: Styles.textStyle
+                              .copyWith(color: Styles.primaryColor)),
+                    ),
+                  ],
                 )
-                
               ],
             ),
           )
         ],
       ),
     );
-}
+  }
 }
