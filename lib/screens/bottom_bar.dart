@@ -1,3 +1,4 @@
+import 'package:booktickets/screens/home/home_screen.dart';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +12,7 @@ class BottomBar extends StatefulWidget {
 class BottomBarState extends State <BottomBar> {
 
   static final List<Widget> _widgetOptions = <Widget> [
-      const Text("Home"),
+      const HomeScreen(),
       const Text("Search"),
       const Text("Ticket"),
       const Text("Profile")
@@ -28,12 +29,6 @@ class BottomBarState extends State <BottomBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        elevation: 12,
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text("My Tickets"),
-      ),
       body: Center(
         child: _widgetOptions[_selectedIndex],
       ),
