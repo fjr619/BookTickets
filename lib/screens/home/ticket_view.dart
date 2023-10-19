@@ -1,7 +1,8 @@
-import 'package:booktickets/screens/widget/thick_container.dart';
 import 'package:booktickets/util/app_layout.dart';
-import 'package:booktickets/util/app_style.dart';
 import 'package:flutter/material.dart';
+
+import '../../util/app_style.dart';
+import '../widget/thick_container.dart';
 
 class TicketView extends StatelessWidget {
   const TicketView({super.key});
@@ -75,12 +76,32 @@ class TicketView extends StatelessWidget {
                       thickContainer,
                       const Spacer(),
                       Text(
-                        "London",
+                        "LDN",
                         style: Styles.headlineTextStyle3
                             .copyWith(color: Colors.white),
                       )
                     ],
-                  )
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      SizedBox(
+                          width: 100,
+                          child: Text("New-York",
+                              style: Styles.headlineTextStyle4
+                                  .copyWith(color: Colors.white))),
+                      Text(
+                        "8H 30M",
+                        style: Styles.headlineTextStyle4
+                            .copyWith(color: Colors.white),
+                      ),
+                      SizedBox(
+                          width: 100,
+                          child: Text("London",
+                              style: Styles.headlineTextStyle4
+                                  .copyWith(color: Colors.white), textAlign: TextAlign.end))
+                    ],
+                  ),
                 ],
               ),
             )
