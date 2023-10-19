@@ -12,22 +12,24 @@ class TicketView extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = AppLayout.getSize(context);
 
-    return SizedBox(
-      width: size.width,
+    return Container(
+      width: size.width * 0.85,
       height: 200,
       child: Container(
-        margin: const EdgeInsets.only(left: 16),
+        margin: const EdgeInsets.only(right: 16),
         child: Column(
           children: [
             //showing the part of the card/ticket
             Container(
               padding: const EdgeInsets.all(16),
+              height: 100,
               decoration: BoxDecoration(
                   color: Styles.blueColor,
                   borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(21),
                       topRight: Radius.circular(21))),
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Row(
                     children: [
@@ -102,93 +104,118 @@ class TicketView extends StatelessWidget {
                           width: 100,
                           child: Text("London",
                               style: Styles.headlineTextStyle4
-                                  .copyWith(color: Colors.white), textAlign: TextAlign.end))
+                                  .copyWith(color: Colors.white),
+                              textAlign: TextAlign.end))
                     ],
                   ),
                 ],
               ),
             ),
 
-            //showing the orange part of the card/ticket
-            Container(
-              color: Styles.orangeColor,
-              child: Row(
-                children: [
-                  Container(
-                    height: 20,
-                    width: 10,
+            Expanded(
+                child:
+                Container(
                     decoration: BoxDecoration(
-                        color: Styles.bgColor,
-                        borderRadius: const BorderRadius.only(topRight: Radius.circular(10), bottomRight: Radius.circular(10))
-                    ),
-                  ),
-
-                  Expanded(child: Padding(
-                    padding: const EdgeInsets.all(12.0),
-                    child: LayoutBuilder(
-                      builder: (context, constraints) {
-                        return Flex(
-                          direction: Axis.horizontal,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          mainAxisSize: MainAxisSize.max,
-                          children: List.generate((constraints.constrainWidth()/15).floor(), (index) => Container(width: 5, height: 1, decoration: const BoxDecoration(color: Colors.white))),
-                        );
-                      },
-                    ),
-                  )),
-                  Container(
-                    height: 20,
-                    width: 10,
-                    decoration: BoxDecoration(
-                        color: Styles.bgColor,
-                        borderRadius: const BorderRadius.only(topLeft: Radius.circular(10), bottomLeft: Radius.circular(10))
-                    ),
-                  ),
-
-                ],
-              ),
-            ),
-
-            //
-            Container(
-              padding: const EdgeInsets.fromLTRB(16, 10, 16, 16),
-              decoration: BoxDecoration(
-                  color: Styles.orangeColor,
-                  borderRadius: const BorderRadius.only(
-                      bottomLeft: Radius.circular(21),
-                      bottomRight: Radius.circular(21))),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text("1 MAY", style: Styles.headlineTextStyle3.copyWith(color: Colors.white)),
-                      const Gap(5),
-                      Text("DATE", style: Styles.headlineTextStyle4.copyWith(color: Colors.white))
-                    ],
-                  ),
-
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text("08:00 AM", style: Styles.headlineTextStyle3.copyWith(color: Colors.white)),
-                      const Gap(5),
-                      Text("Depature Time", style: Styles.headlineTextStyle4.copyWith(color: Colors.white))
-                    ],
-                  ),
-
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      Text("23", style: Styles.headlineTextStyle3.copyWith(color: Colors.white)),
-                      const Gap(5),
-                      Text("Number", style: Styles.headlineTextStyle4.copyWith(color: Colors.white))
-                    ],
-                  )
-                ],
-              ),
-            )
+                        color: Styles.orangeColor,
+                        borderRadius: const BorderRadius.only(
+                            bottomLeft: Radius.circular(21),
+                            bottomRight: Radius.circular(21))),
+                    child: Column(
+                      children: [
+                        Row(
+                          children: [
+                            Container(
+                              height: 20,
+                              width: 10,
+                              decoration: BoxDecoration(
+                                  color: Styles.bgColor,
+                                  borderRadius: const BorderRadius.only(
+                                      topRight: Radius.circular(10),
+                                      bottomRight: Radius.circular(10))),
+                            ),
+                            Expanded(
+                                child: Padding(
+                              padding: const EdgeInsets.all(12.0),
+                              child: LayoutBuilder(
+                                builder: (context, constraints) {
+                                  return Flex(
+                                    direction: Axis.horizontal,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: List.generate(
+                                        (constraints.constrainWidth() / 15)
+                                            .floor(),
+                                        (index) => Container(
+                                            width: 5,
+                                            height: 1,
+                                            decoration: const BoxDecoration(
+                                                color: Colors.white))),
+                                  );
+                                },
+                              ),
+                            )),
+                            Container(
+                              height: 20,
+                              width: 10,
+                              decoration: BoxDecoration(
+                                  color: Styles.bgColor,
+                                  borderRadius: const BorderRadius.only(
+                                      topLeft: Radius.circular(10),
+                                      bottomLeft: Radius.circular(10))),
+                            ),
+                          ],
+                        ),
+                        Expanded(
+                            child: Container(
+                          padding: const EdgeInsets.fromLTRB(16, 10, 16, 16),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text("1 MAY",
+                                      style: Styles.headlineTextStyle3
+                                          .copyWith(color: Colors.white)),
+                                  const Gap(5),
+                                  Text("DATE",
+                                      style: Styles.headlineTextStyle4
+                                          .copyWith(color: Colors.white))
+                                ],
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text("08:00 AM",
+                                      style: Styles.headlineTextStyle3
+                                          .copyWith(color: Colors.white)),
+                                  const Gap(5),
+                                  Text("Depature Time",
+                                      style: Styles.headlineTextStyle4
+                                          .copyWith(color: Colors.white))
+                                ],
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text("23",
+                                      style: Styles.headlineTextStyle3
+                                          .copyWith(color: Colors.white)),
+                                  const Gap(5),
+                                  Text("Number",
+                                      style: Styles.headlineTextStyle4
+                                          .copyWith(color: Colors.white))
+                                ],
+                              )
+                            ],
+                          ),
+                        ))
+                      ],
+                    )))
           ],
         ),
       ),
