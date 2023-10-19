@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:booktickets/screens/home/ticket_view.dart';
 import 'package:booktickets/util/app_style.dart';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
@@ -68,7 +69,7 @@ class HomeScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-                const Gap(40),
+                const Gap(30),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -78,13 +79,20 @@ class HomeScreen extends StatelessWidget {
                     ),
                     TextButton(
                       style: ButtonStyle(
-                        overlayColor:
-                            MaterialStateProperty.all<Color>(Colors.white54),
-                      ),
+                          // overlayColor: MaterialStateProperty.all<Color>(
+                          //     Colors.grey.shade100),
+                          padding: MaterialStateProperty.all<EdgeInsets>(
+                              const EdgeInsets.all(5)),
+                          overlayColor: MaterialStateProperty.all<Color>(
+                              Colors.grey.shade300.withAlpha(115)),
+                          shape:
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                                      borderRadius:
+                                          BorderRadius.circular(20)))),
                       onPressed: () {
                         print("onclick view all");
                       },
-                      isSemanticButton: true,
                       child: Text("View all",
                           style: Styles.textStyle
                               .copyWith(color: Styles.primaryColor)),
@@ -93,7 +101,9 @@ class HomeScreen extends StatelessWidget {
                 )
               ],
             ),
-          )
+          ),
+          const Gap(5),
+          TicketView(),
         ],
       ),
     );
