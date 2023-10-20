@@ -119,9 +119,9 @@ class HomeScreen extends StatelessWidget {
                   child: ListView.separated(
                       scrollDirection: Axis.horizontal,
                       padding: const EdgeInsets.only(left: 20, right: 16),
-                      itemBuilder: (context, index) => TicketView(),
+                      itemBuilder: (context, index) => TicketView(ticket: ticketList[index],),
                       separatorBuilder: (context, index) => Gap(12),
-                      itemCount: 3)),
+                      itemCount: ticketList.length)),
             ],
           ),
           const Gap(10),

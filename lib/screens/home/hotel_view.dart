@@ -11,7 +11,6 @@ class HotelView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Size size = AppLayout.getSize(context);
-    final String imagePath = "assets/images/${hotel['image']}";
     return Material(
       color: Styles.primaryColor,
       borderRadius: BorderRadius.circular(24),
@@ -29,7 +28,7 @@ class HotelView extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(12),
                   child: Image(
-                      image: AssetImage(imagePath),
+                      image: AssetImage("assets/images/${hotel['image']}"),
                       fit: BoxFit.cover),
                 ),
               ),
