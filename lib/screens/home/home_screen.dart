@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:booktickets/screens/home/ticket_view.dart';
 import 'package:booktickets/util/app_style.dart';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
@@ -69,8 +67,20 @@ class HomeScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-                const Gap(30),
-                Row(
+              ],
+            ),
+          ),
+
+          const Gap(30),
+
+          /**
+           * Upcoming flight section
+           */
+          Column(
+            children: [
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
@@ -79,17 +89,17 @@ class HomeScreen extends StatelessWidget {
                     ),
                     TextButton(
                       style: ButtonStyle(
-                          // overlayColor: MaterialStateProperty.all<Color>(
-                          //     Colors.grey.shade100),
+                        // overlayColor: MaterialStateProperty.all<Color>(
+                        //     Colors.grey.shade100),
                           padding: MaterialStateProperty.all<EdgeInsets>(
                               const EdgeInsets.all(5)),
                           overlayColor: MaterialStateProperty.all<Color>(
                               Colors.grey.shade300.withAlpha(115)),
                           shape:
-                              MaterialStateProperty.all<RoundedRectangleBorder>(
-                                  RoundedRectangleBorder(
-                                      borderRadius:
-                                          BorderRadius.circular(20)))),
+                          MaterialStateProperty.all<RoundedRectangleBorder>(
+                              RoundedRectangleBorder(
+                                  borderRadius:
+                                  BorderRadius.circular(20)))),
                       onPressed: () {
                         print("onclick view all");
                       },
@@ -98,18 +108,59 @@ class HomeScreen extends StatelessWidget {
                               .copyWith(color: Styles.primaryColor)),
                     ),
                   ],
-                )
-              ],
-            ),
+                ),
+              ),
+
+              const Gap(5),
+
+              SizedBox(
+                // padding: EdgeInsets.only(left: 20),
+                  height: 200,
+                  child: ListView(
+                    padding: const EdgeInsets.only(left: 20),
+                    scrollDirection: Axis.horizontal,
+                    children: const [
+                      TicketView(),
+                      TicketView(),
+                    ],
+                  )),
+            ],
           ),
-          const Gap(5),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            padding: EdgeInsets.only(left: 20),
+
+          const Gap(10),
+
+          /**
+           * Hotels section
+           */
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                TicketView(),
-                TicketView(),
+                Text(
+                  "Hotels",
+                  style: Styles.headlineTextStyle2,
+                ),
+                TextButton(
+                  style: ButtonStyle(
+                    // overlayColor: MaterialStateProperty.all<Color>(
+                    //     Colors.grey.shade100),
+                      padding: MaterialStateProperty.all<EdgeInsets>(
+                          const EdgeInsets.all(5)),
+                      overlayColor: MaterialStateProperty.all<Color>(
+                          Colors.grey.shade300.withAlpha(115)),
+                      shape:
+                      MaterialStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                              borderRadius:
+                              BorderRadius.circular(20)))),
+                  onPressed: () {
+                    print("onclick view all");
+                  },
+                  child: Text("View all",
+                      style: Styles.textStyle
+                          .copyWith(color: Styles.primaryColor)),
+                ),
               ],
             ),
           )
