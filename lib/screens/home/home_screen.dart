@@ -5,6 +5,8 @@ import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
+import '../../util/app_info_list.dart';
+
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
@@ -168,14 +170,14 @@ class HomeScreen extends StatelessWidget {
                 child: ListView.separated(
                   padding: const EdgeInsets.only(left: 20, right: 16),
                   scrollDirection: Axis.horizontal,
-                  itemCount: 6,
+                  itemCount: hotelList.length,
                   separatorBuilder: (context, index) => const Gap(12,),
-                  itemBuilder: (context, index) => HotelView(),
+                  itemBuilder: (context, index) => HotelView(hotel: hotelList[index]),
                 ),
               ),
             ],
           )),
-
+          const Gap(15),
         ],
       ),
     );

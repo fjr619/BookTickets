@@ -4,11 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
 class HotelView extends StatelessWidget {
-  const HotelView({super.key});
+  final Map<String, dynamic> hotel;
+
+  const HotelView({super.key, required this.hotel});
 
   @override
   Widget build(BuildContext context) {
     final Size size = AppLayout.getSize(context);
+    final String imagePath = "assets/images/${hotel['image']}";
     return Material(
       color: Styles.primaryColor,
       borderRadius: BorderRadius.circular(24),
@@ -25,25 +28,25 @@ class HotelView extends StatelessWidget {
                 height: 200,
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(12),
-                  child: const Image(
-                      image: AssetImage("assets/images/one.png"),
+                  child: Image(
+                      image: AssetImage(imagePath),
                       fit: BoxFit.cover),
                 ),
               ),
               const Gap(10),
               Text(
-                "Open space",
+                hotel['place'],
                 style: Styles.headlineTextStyle2
                     .copyWith(color: Color(0xFFd2bdb6)),
               ),
               const Gap(5),
               Text(
-                "London",
+                hotel['destination'],
                 style: Styles.headlineTextStyle3.copyWith(color: Colors.white),
               ),
               const Gap(8),
               Text(
-                "\$40/night",
+                "\$${hotel['price']}/night",
                 style:
                     Styles.headlineTextStyle.copyWith(color: Color(0xFFd2bdb6)),
               ),
