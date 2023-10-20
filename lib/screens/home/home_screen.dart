@@ -1,3 +1,4 @@
+import 'package:booktickets/screens/home/hotel_view.dart';
 import 'package:booktickets/screens/home/ticket_view.dart';
 import 'package:booktickets/util/app_style.dart';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
@@ -70,7 +71,6 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
           ),
-
           const Gap(30),
 
           /**
@@ -89,17 +89,69 @@ class HomeScreen extends StatelessWidget {
                     ),
                     TextButton(
                       style: ButtonStyle(
-                        // overlayColor: MaterialStateProperty.all<Color>(
-                        //     Colors.grey.shade100),
+                          // overlayColor: MaterialStateProperty.all<Color>(
+                          //     Colors.grey.shade100),
                           padding: MaterialStateProperty.all<EdgeInsets>(
                               const EdgeInsets.all(5)),
                           overlayColor: MaterialStateProperty.all<Color>(
                               Colors.grey.shade300.withAlpha(115)),
                           shape:
-                          MaterialStateProperty.all<RoundedRectangleBorder>(
-                              RoundedRectangleBorder(
-                                  borderRadius:
-                                  BorderRadius.circular(20)))),
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                                      borderRadius:
+                                          BorderRadius.circular(20)))),
+                      onPressed: () {
+                        print("onclick view all");
+                      },
+                      child: Text("View all",
+                          style: Styles.textStyle
+                              .copyWith(color: Styles.primaryColor)),
+                    ),
+                  ],
+                ),
+              ),
+              const Gap(5),
+              SizedBox(
+                  // padding: EdgeInsets.only(left: 20),
+                  height: 200,
+                  child: ListView.separated(
+                      scrollDirection: Axis.horizontal,
+                      padding: const EdgeInsets.only(left: 20, right: 16),
+                      itemBuilder: (context, index) => TicketView(),
+                      separatorBuilder: (context, index) => Gap(12),
+                      itemCount: 3)),
+            ],
+          ),
+          const Gap(10),
+
+          /**
+           * Hotels section
+           */
+          Container(
+              child: Column(
+            children: [
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Hotels",
+                      style: Styles.headlineTextStyle2,
+                    ),
+                    TextButton(
+                      style: ButtonStyle(
+                          // overlayColor: MaterialStateProperty.all<Color>(
+                          //     Colors.grey.shade100),
+                          padding: MaterialStateProperty.all<EdgeInsets>(
+                              const EdgeInsets.all(5)),
+                          overlayColor: MaterialStateProperty.all<Color>(
+                              Colors.grey.shade300.withAlpha(115)),
+                          shape:
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                                      borderRadius:
+                                          BorderRadius.circular(20)))),
                       onPressed: () {
                         print("onclick view all");
                       },
@@ -111,59 +163,19 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
 
-              const Gap(5),
-
               SizedBox(
-                // padding: EdgeInsets.only(left: 20),
-                  height: 200,
-                  child: ListView(
-                    padding: const EdgeInsets.only(left: 20),
-                    scrollDirection: Axis.horizontal,
-                    children: const [
-                      TicketView(),
-                      TicketView(),
-                    ],
-                  )),
+                height: 350,
+                child: ListView.separated(
+                  padding: const EdgeInsets.only(left: 20, right: 16),
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 6,
+                  separatorBuilder: (context, index) => const Gap(12,),
+                  itemBuilder: (context, index) => HotelView(),
+                ),
+              ),
             ],
-          ),
+          )),
 
-          const Gap(10),
-
-          /**
-           * Hotels section
-           */
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "Hotels",
-                  style: Styles.headlineTextStyle2,
-                ),
-                TextButton(
-                  style: ButtonStyle(
-                    // overlayColor: MaterialStateProperty.all<Color>(
-                    //     Colors.grey.shade100),
-                      padding: MaterialStateProperty.all<EdgeInsets>(
-                          const EdgeInsets.all(5)),
-                      overlayColor: MaterialStateProperty.all<Color>(
-                          Colors.grey.shade300.withAlpha(115)),
-                      shape:
-                      MaterialStateProperty.all<RoundedRectangleBorder>(
-                          RoundedRectangleBorder(
-                              borderRadius:
-                              BorderRadius.circular(20)))),
-                  onPressed: () {
-                    print("onclick view all");
-                  },
-                  child: Text("View all",
-                      style: Styles.textStyle
-                          .copyWith(color: Styles.primaryColor)),
-                ),
-              ],
-            ),
-          )
         ],
       ),
     );

@@ -16,7 +16,6 @@ class TicketView extends StatelessWidget {
       width: size.width * 0.85,
       height: 200,
       child: Container(
-        margin: const EdgeInsets.only(right: 16),
         child: Column(
           children: [
             //showing the part of the card/ticket

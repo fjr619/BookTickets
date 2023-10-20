@@ -22,13 +22,13 @@ class Styles {
   );
 
   static TextStyle headlineTextStyle2 = TextStyle(
-    fontSize: 21,
+    fontSize: 23,
     color: textColor,
     fontWeight: FontWeight.bold
   );
 
   static TextStyle headlineTextStyle3 = TextStyle(
-    fontSize: 18,
+    fontSize: 17,
     color: Colors.grey.shade500,
     fontWeight: FontWeight.w500
   );
